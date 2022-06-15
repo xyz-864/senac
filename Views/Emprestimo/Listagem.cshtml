@@ -28,6 +28,7 @@
                 <th>Usuario</th>
                 <th>Data Empréstimo</th>
                 <th>Data Devolução</th>
+                <th>Devolvido?</th>
                 <th>Livro</th>
                 <th>Autor</th>
                 <th></th>
@@ -41,6 +42,7 @@
                     <td>@e.NomeUsuario</td>
                     <td>@e.DataEmprestimo.ToString("dd/MM/yyyy")</td>
                     <td>@e.DataDevolucao.ToString("dd/MM/yyyy")</td>
+                    <td>@e.Devolvido</td>
                     <td>@e.Livro.Titulo</td>
                     <td>@e.Livro.Autor</td>
                     <td><a href="/Emprestimo/Edicao/@e.Id">Editar</a></td>
