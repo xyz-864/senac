@@ -6,6 +6,8 @@ namespace Biblioteca.Models
 {
     public class LivroService
     {
+
+
         public void Inserir(Livro l)
         {
             using(BibliotecaContext bc = new BibliotecaContext())
@@ -29,8 +31,11 @@ namespace Biblioteca.Models
 
         public ICollection<Livro> ListarTodos(FiltrosLivros filtro = null)
         {
+
             using(BibliotecaContext bc = new BibliotecaContext())
             {
+                
+                
                 IQueryable<Livro> query;
                 
                 if(filtro != null)
@@ -56,9 +61,10 @@ namespace Biblioteca.Models
                     // caso filtro não tenha sido informado
                     query = bc.Livros;
                 }
-                
-                //ordenação padrão
+
+                 //ordenação padrão
                 return query.OrderBy(l => l.Titulo).ToList();
+              
             }
         }
 
