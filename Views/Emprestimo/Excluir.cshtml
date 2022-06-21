@@ -1,0 +1,13 @@
+@model Emprestimo
+@{
+    ViewData["Title"] = "Exclusão de registro";
+}
+<h1 class="row justify-content-md-center">Exclusão de Registro</h1>
+
+<h2> Deseja excluir o Registro? </h2>
+
+  <form asp-action="Excluir" method="POST">
+      <input type="hidden" asp-for="Id" />
+      <button type="submit" name="decisao" value="n">Não</button>
+      <button type="submit" name="decisao" value="s">Sim</button>
+  </form>

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "BrOcP1f20/xx66fVHREd6kq73QX01mkS4lQ1f+J9ruWYEc/h92itKpHmgSrXKwDfVpI5JNwey42z7TxxsdDyhg==",
+  "dgSpecHash": "PWc7gP/e3I41GalWrCg+BVVm9RD0HyZwNsmSpySjm01JGI8S1Cn926AlTNRymLKKqVaNqboDWpo5asLO3t5XAA==",
   "success": true,
-  "projectFilePath": "E:\\Biblioteca\\Biblioteca.csproj",
+  "projectFilePath": "E:\\Downloads\\objs\\trabalho\\Biblioteca\\Biblioteca.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Samuel\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.1.0\\microsoft.bcl.asyncinterfaces.1.1.0.nupkg.sha512",
     "C:\\Users\\Samuel\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

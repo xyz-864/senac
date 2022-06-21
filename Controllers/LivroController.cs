@@ -1,5 +1,6 @@
 using Biblioteca.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Components.Web;
 
 namespace Biblioteca.Controllers
 {
@@ -8,6 +9,7 @@ namespace Biblioteca.Controllers
         public IActionResult Cadastro()
         {
             Autenticacao.CheckLogin(this);
+            Autenticacao.AdminVerify(this);
             return View();
         }
 
@@ -39,15 +41,47 @@ namespace Biblioteca.Controllers
                 objFiltro.TipoFiltro = tipoFiltro;
             }
             LivroService livroService = new LivroService();
+            
+
             return View(livroService.ListarTodos(objFiltro));
+            
         }
+
 
         public IActionResult Edicao(int id)
         {
             Autenticacao.CheckLogin(this);
+            Autenticacao.AdminVerify(this);
             LivroService ls = new LivroService();
             Livro l = ls.ObterPorId(id);
             return View(l);
         }
+
+                          
+  public IActionResult Excluir(int id)
+ {
+        Autenticacao.CheckLogin(this);
+        Autenticacao.AdminVerify(this);
+      LivroService ls = new LivroService();
+       Livro l = ls.ObterPorId(id);
+
+    return View(l);
+  }
+
+  [HttpPost]
+  public IActionResult Excluir(Livro l, int id, string decisao)
+  {
+       
+      LivroService ls = new LivroService();
+
+      if( decisao == "s")
+     {
+      ls.Deletar(l); 
+      }
+
+      return RedirectToAction("Listagem");
+  }
+                        
+
     }
 }

@@ -9,8 +9,14 @@ namespace Biblioteca.Controllers
     
     public class EmprestimoController : Controller
     {
+       
+    
+       
         public IActionResult Cadastro()
         {
+            
+              Autenticacao.CheckLogin(this);
+            Autenticacao.AdminVerify(this);
             LivroService livroService = new LivroService();
             EmprestimoService emprestimoService = new EmprestimoService();
 
@@ -22,6 +28,7 @@ namespace Biblioteca.Controllers
         [HttpPost]
         public IActionResult Cadastro(CadEmprestimoViewModel viewModel)
         {
+            
             EmprestimoService emprestimoService = new EmprestimoService();
             
             if(viewModel.Emprestimo.Id == 0)
@@ -37,6 +44,9 @@ namespace Biblioteca.Controllers
 
         public IActionResult Listagem(string tipoFiltro, string filtro)
         {
+            
+            Autenticacao.CheckLogin(this);
+            Autenticacao.AdminVerify(this);
             FiltrosEmprestimos objFiltro = null;
             if(!string.IsNullOrEmpty(filtro))
             {
@@ -50,6 +60,9 @@ namespace Biblioteca.Controllers
 
         public IActionResult Edicao(int id)
         {
+            
+            Autenticacao.CheckLogin(this);
+            Autenticacao.AdminVerify(this);
             LivroService livroService = new LivroService();
             EmprestimoService em = new EmprestimoService();
             Emprestimo e = em.ObterPorId(id);
@@ -60,5 +73,33 @@ namespace Biblioteca.Controllers
             
             return View(cadModel);
         }
+
+  public IActionResult Excluir(int id)
+ {
+        Autenticacao.CheckLogin(this);
+            Autenticacao.AdminVerify(this);
+      EmprestimoService es = new EmprestimoService();
+       Emprestimo E = es.ObterPorId(id);
+
+    return View(E);
+  }
+
+  [HttpPost]
+  public IActionResult Excluir(Emprestimo E, int id, string decisao)
+  {
+       
+    Autenticacao.CheckLogin(this);
+     Autenticacao.AdminVerify(this);
+      EmprestimoService es = new EmprestimoService();
+
+      if( decisao == "s")
+     {
+      es.Deletar(E); 
+      }
+
+      return RedirectToAction("Listagem");
+  }
+              
+
     }
 }

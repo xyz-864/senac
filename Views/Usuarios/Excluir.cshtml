@@ -1,0 +1,16 @@
+@model Usuario
+@{
+    ViewData["Title"] = "Exclusão de registro";
+}
+
+<h1 class="row justify-content-md-center">Exclusão de Registro</h1>
+<H2>Deseja excluir o Registro? de @Model.Nome (@Model.Login)?</H2>
+
+
+<form action="ExcluirUsuario" method="post">
+    <input type="hidden" name="id" value="@Model.Id">
+
+    <input name="decisao" type="submit" value="Não">
+    <input name="decisao" type="submit" value="Sim">
+</form>
+

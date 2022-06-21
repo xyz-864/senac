@@ -5051,11 +5051,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Biblioteca\\Biblioteca.csproj",
+      "projectUniqueName": "E:\\Downloads\\objs\\trabalho\\Biblioteca\\Biblioteca.csproj",
       "projectName": "Biblioteca",
-      "projectPath": "E:\\Biblioteca\\Biblioteca.csproj",
+      "projectPath": "E:\\Downloads\\objs\\trabalho\\Biblioteca\\Biblioteca.csproj",
       "packagesPath": "C:\\Users\\Samuel\\.nuget\\packages\\",
-      "outputPath": "E:\\Biblioteca\\obj\\",
+      "outputPath": "E:\\Downloads\\objs\\trabalho\\Biblioteca\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

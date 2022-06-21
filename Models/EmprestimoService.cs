@@ -72,6 +72,19 @@ namespace Biblioteca.Models
             }
         }
 
+  public void Deletar(Emprestimo E)
+        {
+            using(BibliotecaContext bc = new BibliotecaContext())
+            {
+               Emprestimo emp = bc.Emprestimos.Find(E.Id);
+              
+              
+                 bc.Emprestimos.Remove(emp);
+                bc.SaveChanges();
+             
+            }
+        }
+
         public Emprestimo ObterPorId(int id)
         {
             using(BibliotecaContext bc = new BibliotecaContext())
