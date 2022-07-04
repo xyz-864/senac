@@ -18,6 +18,8 @@ namespace Biblioteca.Controllers
         {
             LivroService livroService = new LivroService();
 
+        if (!string.IsNullOrEmpty(l.Titulo) && !string.IsNullOrEmpty(l.Autor) && l.Ano > 0) {
+            
             if(l.Id == 0)
             {
                 livroService.Inserir(l);
@@ -26,8 +28,17 @@ namespace Biblioteca.Controllers
             {
                 livroService.Atualizar(l);
             }
-
+        
             return RedirectToAction("Listagem");
+            }
+    
+        else {
+
+            ViewData["Error"] ="Por favor informe dados válidos";
+            return View();
+            
+            }
+    
         }
 
         public IActionResult Listagem(string tipoFiltro, string filtro)

@@ -78,8 +78,7 @@ namespace Biblioteca.Models
             {
                Emprestimo emp = bc.Emprestimos.Find(E.Id);
               
-              
-                 bc.Emprestimos.Remove(emp);
+                bc.Emprestimos.Remove(emp);
                 bc.SaveChanges();
              
             }

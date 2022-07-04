@@ -1,3 +1,6 @@
+using System;
+using System.ComponentModel.DataAnnotations;  
+
 namespace Biblioteca.Models
 {
     public class Livro

@@ -7,10 +7,10 @@
 <H2>Deseja excluir o Registro? de @Model.Nome (@Model.Login)?</H2>
 
 
-<form action="ExcluirUsuario" method="post">
+<form action="Excluir" method="post">
     <input type="hidden" name="id" value="@Model.Id">
 
-    <input name="decisao" type="submit" value="Não">
-    <input name="decisao" type="submit" value="Sim">
+      <button type="submit" name="decisao" value="n">Não</button>
+      <button type="submit" name="decisao" value="s">Sim</button>
 </form>
 

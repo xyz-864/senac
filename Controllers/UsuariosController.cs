@@ -33,16 +33,26 @@ namespace Biblioteca.Controllers
         [HttpPost]
         public IActionResult registrarUsuarios(Usuario novoUser)
         {
+           
             Autenticacao.CheckLogin(this);
             Autenticacao.AdminVerify(this);
 
             UsuarioService us = new UsuarioService();
             
-            novoUser.Senha = Crypto.Generate(novoUser.Senha);
+            if (!string.IsNullOrEmpty(novoUser.Nome) && !string.IsNullOrEmpty(novoUser.Senha) && !string.IsNullOrEmpty(novoUser.Login) ) {
 
-            us.Inserir(novoUser);
+               novoUser.Senha = Crypto.Generate(novoUser.Senha);
+               us.Inserir(novoUser);
+               return RedirectToAction("cadastroRealizado");
 
-            return RedirectToAction("cadastroRealizado");
+            }
+
+            else{ 
+                ViewData["Error"] ="Por favor informe dados válidos";
+                return View();
+            }
+
+           
         }        
 
    public IActionResult Excluir(int id)
@@ -68,8 +78,7 @@ namespace Biblioteca.Controllers
 
       return RedirectToAction("listaDeUsuarios");
   }
-                
-
+            
 
     
         public IActionResult cadastroRealizado()

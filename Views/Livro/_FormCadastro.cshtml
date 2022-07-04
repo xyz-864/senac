@@ -1,5 +1,9 @@
 @model Livro
+
+
+
 <div class="row justify-content-md-center">
+ 
     <form asp-action="Cadastro" method="POST" class="col-md-4">
         <input type="hidden" asp-for="Id" />
         <div class="form-group">
@@ -16,5 +20,15 @@
         </div>
         <input type="submit" value="Salvar" class="btn btn-primary"/>
     </form>
+
+</div>
+
+<div class="row justify-content-md-center">
+<p>
+<br>
+<br>
+<br>
+<br>@ViewData["Error"]
+</p>
 </div>
 

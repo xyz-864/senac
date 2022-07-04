@@ -15,7 +15,7 @@ namespace Biblioteca.Controllers
         public IActionResult Cadastro()
         {
             
-              Autenticacao.CheckLogin(this);
+            Autenticacao.CheckLogin(this);
             Autenticacao.AdminVerify(this);
             LivroService livroService = new LivroService();
             EmprestimoService emprestimoService = new EmprestimoService();
@@ -27,10 +27,9 @@ namespace Biblioteca.Controllers
 
         [HttpPost]
         public IActionResult Cadastro(CadEmprestimoViewModel viewModel)
-        {
-            
+    {
             EmprestimoService emprestimoService = new EmprestimoService();
-            
+
             if(viewModel.Emprestimo.Id == 0)
             {
                 emprestimoService.Inserir(viewModel.Emprestimo);
@@ -39,8 +38,12 @@ namespace Biblioteca.Controllers
             {
                 emprestimoService.Atualizar(viewModel.Emprestimo);
             }
+
             return RedirectToAction("Listagem");
-        }
+
+    }
+
+    
 
         public IActionResult Listagem(string tipoFiltro, string filtro)
         {
@@ -93,7 +96,7 @@ namespace Biblioteca.Controllers
       EmprestimoService es = new EmprestimoService();
 
       if( decisao == "s")
-     {
+      {
       es.Deletar(E); 
       }
 

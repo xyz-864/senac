@@ -1,10 +1,13 @@
 using System;
+using System.ComponentModel.DataAnnotations;  
+
 
 namespace Biblioteca.Models
 {
     public class Emprestimo
     {
         public int Id { get; set; }
+        
         public DateTime DataEmprestimo { get; set; }
         public DateTime DataDevolucao { get; set; }
        
